@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+h3 {
+    font-weight: 400;
+}
+
+
+header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url(/assets/lawrence-aritao-k2sTHzAnmfY-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    color: white;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 1rem;
+
+    nav {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        ul {
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            list-style-type: none;
+            width: 100%;
+            max-width: 1000px;
+
+            li {
+                margin: 0 auto;
+
+                a {
+                    color: #0A846E;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 1.1rem;
+                }
+
+                a:visited {
+                    color: #0A846E;
+                }
+            }
+        }
+    }
+
+    div {
+        margin-top: 2rem;
+    }
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* add plant section */
+.add-plant, .planned-plants-container, .planted-plants-container {
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+.add-plant form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.add-plant form div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.add-plant label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.95rem;
+    gap: 0.25rem;
+    width: 100%;
+}
+
+.add-plant input,
+.add-plant select {
+    padding: 0.8rem 0.5rem;
+    border: 1px solid #ececec;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator { 
+    color: #0A846E;
+}
+
+
+.add-plant button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #0A846E;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.add-plant button:hover {
+    background-color: #285e61;
+}
+
+.planned-plants-container > h2, .planted-plants-container > h2 {
+    text-align: center;
+}

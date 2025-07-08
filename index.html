@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLANNED PLANTHOOD - Mina sidor</title>
+    <script src="dist/index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#planned">PLANER</a>
+                </li>
+                <li>
+                    <a href="#planted">HISTORIK</a>
+                </li>
+                <li>
+                    <a href="#">TIPS</a>
+                </li>
+                <li>
+                    <a href="#">LOGGA UT</a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <img src="/assets/pp-logo.svg" alt="en illustration av blad i form av ett hjärta">
+            <h3>PLANNED PLANTHOOD</h3>
+        </div>
+        <h1>Mina sidor</h1>
+        <!-- Photo by <a href="https://unsplash.com/@lawaritao?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Lawrence Aritao</a> on <a href="https://unsplash.com/photos/person-holding-green-plant-during-daytime-k2sTHzAnmfY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> -->
+    </header>
+    <main>
+        <section class="add-plant">
+            <h2>Lägg till ny plantering:</h2>
+            <form>
+                <div>
+                    <label for="plant-name">
+                        Planta:
+                        <input id="plant-name" type="text" placeholder="Ex. tomatplanta">
+                    </label>
+                    <label for="plant-date">
+                        Datum:
+                        <input id="plant-date" type="date" value="2025-07-09">
+                    </label>
+                </div>
+                <div>
+                    <label for="plant-image">
+                        Bild:
+                        <input id="plant-image" type="text" value="https://images.unsplash.com/photo-1723580864774-e84bb9770695?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                    </label>
+                    <label for="plant-tag">
+                        Typ:
+                        <select>
+                            <option value="vegetable" selected>Grönsak</option>
+                            <option value="flower">Blomma</option>
+                            <option value="plant">Växt</option>
+                            <option value="other">Övrigt</option>
+                        </select>
+                    </label>
+                </div>
+                <button>LÄGG TILL</button>
+            </form>
+        </section>
+        <section class="planned-plants-container" id="planned">
+            <h2>Dina planerade planteringar</h2>
+            <ul class="planned-plants"></ul>
+        </section>
+        <section class="planted-plants-container" id="planted">
+            <h2>Dina planterade planteringar</h2>
+            <ul class="planted-plants"></ul>
+        </section>
+    </main>
+</body>
+
+</html>
