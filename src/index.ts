@@ -16,7 +16,7 @@ const plants = [
     {
         id: 2,
         name: "Potatis",
-        type: "grönsak",
+        type: "rotfrukt",
         image: "https://images.unsplash.com/photo-1621459557554-60a70d3d61ce?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBvdGF0byUyMHBsYW50fGVufDB8fDB8fHww",
         date: new Date('2026-05-15T10:00:00Z')
     }
