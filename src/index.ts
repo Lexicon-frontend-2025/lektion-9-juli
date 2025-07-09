@@ -37,7 +37,6 @@ const typeInput = document.getElementById("plant-type") as HTMLSelectElement;
 
 form.addEventListener("submit", (event) => {
     event.preventDefault(); // stoppar att sidan laddas om
-
     // skapa unikt ID
     let newId: number;
     if (plants.length > 0) {
@@ -53,18 +52,52 @@ form.addEventListener("submit", (event) => {
         // om ingen planta finns -> tar vi ID 1
         newId = 1;
     }
-    
+
     console.log(typeInput);
-    
+
+    let processedType = "";
+
+    // if (typeInput.value === "vegetable") {
+    //     processedType = "grönsak"
+    // } else if (typeInput.value === "rootvegetable") {
+    //     processedType = "rotfrukt"
+    // } else if (typeInput.value === "flower") {
+    //     processedType = "blomma"
+    // } else if (typeInput.value === "plant") {
+    //     processedType = "växt"
+    // } else if (typeInput.value === "other") {
+    //     processedType = "övrigt"
+    // }
+
+    switch (typeInput.value) {
+        case "vegetable":
+            processedType = "grönsak"
+            break;
+        case "rootvegetable":
+            processedType = "rotfrukt"
+            break;
+        case "flower":
+            processedType = "blomma"
+            break;
+        case "plant":
+            processedType = "växt"
+            break;
+        case "other":
+            processedType = "övrigt"
+            break;
+        default:
+            processedType = "okänd" // vallfritt fallback
+    }
+
     // ta värdena från input-fälten och lägga in i den nya plantan
     const newPlant: Plant = {
         id: newId,
         name: nameInput.value,
         date: new Date(dateInput.value),
         image: imageInput.value,
-        type: typeInput.value,
+        type: processedType,
         user: userName
     };
     console.log(newPlant);
-    
+    plants.push(newPlant);
 });
