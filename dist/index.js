@@ -24,6 +24,9 @@ const nameInput = document.getElementById("plant-name");
 const dateInput = document.getElementById("plant-date");
 const imageInput = document.getElementById("plant-image");
 const typeInput = document.getElementById("plant-type");
+const plannedContainer = document.querySelector(".planned-plants");
+const plantedContainer = document.querySelector(".planted-plants");
+renderPlants();
 form.addEventListener("submit", (event) => {
     event.preventDefault(); // stoppar att sidan laddas om
     // skapa unikt ID
@@ -84,10 +87,71 @@ form.addEventListener("submit", (event) => {
         user: userName
     };
     plants.push(newPlant);
+    console.log(newPlant);
+    renderPlants();
 });
 function renderPlants() {
     // ta reda på vart plantorna ska åka in i HTML
-    const plannedContainer = document.querySelector(".planned-plants");
-    const plantedContainer = document.querySelector(".planted-plants");
+    plannedContainer.innerHTML = "";
+    plantedContainer.innerHTML = "";
+    // loopa igenom listan
+    plants.forEach((plant) => {
+        // skapa elementen som behövs
+        const li = document.createElement("li");
+        // image
+        const img = document.createElement("img");
+        img.setAttribute("src", plant.image);
+        img.setAttribute("alt", plant.name);
+        img.width = 100;
+        img.height = 170;
+        li.appendChild(img);
+        // name heading
+        const headingName = document.createElement("h3");
+        headingName.innerText = plant.name;
+        li.appendChild(headingName);
+        // date paragraph
+        const pDate = document.createElement("p");
+        pDate.innerText = plant.date.toLocaleDateString("sv-se"); // kolla lowercase
+        li.appendChild(pDate);
+        // name paragraph
+        const pName = document.createElement("p");
+        pName.innerText = userName;
+        li.appendChild(pName);
+        // ta bort-knappen
+        const btnDelete = document.createElement("button");
+        btnDelete.dataset.id = plant.id.toString();
+        btnDelete.innerText = "Ta bort";
+        li.appendChild(btnDelete);
+        // titta om datumet är i framtiden -> planned, annars planted
+        if (plant.date > new Date()) {
+            plannedContainer.appendChild(li);
+        }
+        else {
+            plantedContainer.appendChild(li);
+        }
+    });
 }
+;
+function handleDeletePlant(event) {
+    const target = event.target;
+    // är target en knapp?
+    if (target.tagName === "BUTTON") {
+        console.log(target.dataset);
+        // handleDelete
+        const id = Number(target.dataset.id);
+        console.log(id);
+        // hitta vilken planta vi har tryckt på via id, vart i listan den är
+        const index = plants.findIndex(p => p.id === id);
+        console.log(index);
+        // ta bort plantan ur plantlistan via splice
+        plants.splice(index, 1);
+        renderPlants();
+    }
+}
+;
+// ta bort-funktionalitet
+plannedContainer.addEventListener("click", handleDeletePlant);
+plantedContainer.addEventListener("click", (event) => {
+    handleDeletePlant(event);
+});
 //# sourceMappingURL=index.js.map
