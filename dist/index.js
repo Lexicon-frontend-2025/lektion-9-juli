@@ -83,7 +83,11 @@ form.addEventListener("submit", (event) => {
         type: processedType,
         user: userName
     };
-    console.log(newPlant);
     plants.push(newPlant);
 });
+function renderPlants() {
+    // ta reda på vart plantorna ska åka in i HTML
+    const plannedContainer = document.querySelector(".planned-plants");
+    const plantedContainer = document.querySelector(".planted-plants");
+}
 //# sourceMappingURL=index.js.map

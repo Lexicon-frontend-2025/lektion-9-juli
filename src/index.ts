@@ -98,6 +98,15 @@ form.addEventListener("submit", (event) => {
         type: processedType,
         user: userName
     };
-    console.log(newPlant);
     plants.push(newPlant);
 });
+
+function renderPlants(): void {
+    // ta reda på vart plantorna ska åka in i HTML
+    const plannedContainer = document.querySelector(".planned-plants") as HTMLUListElement;
+    const plantedContainer = document.querySelector(".planted-plants") as HTMLUListElement;
+
+    // loopa igenom listan
+    // skapa elementen som behövs
+    // titta om datumet är i framtiden -> planned, annars planted
+}
